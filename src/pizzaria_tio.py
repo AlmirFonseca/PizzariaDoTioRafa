@@ -40,6 +40,28 @@ def remover_ingrediente(ingredientes, nome_ingrediente):
     pass
 
 def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
+    """
+    Função que monta a pizza
+
+    A função recebe a lista de ingredientes, e os ingredientes escolhidos pelo usuario:
+    a massa, o molho, o queijo e a cobertura. A função computa o valor da pizza e imprime
+    a pizza selecionada e o valor da pizza. A função retorna o dataframe com a estrutura da pizza, 
+    contendo também o seu valor total.
+    Caso algum ingrediente selecionado não exista, o ingrediente não é computado.
+
+    :param ingredientes: DataFrame com os ingredientes disponíveis
+    :type ingredientes: pandas.core.DataFrame
+    :param massa: o nome da massa escolhida
+    :type massa: str
+    :param molho: o nome do molho escolhid
+    :type molho: str
+    :param queijo: o nome do queijo escolhido
+    :type queijo: str
+    :param cobertura: o nome da cobertura escolhida
+    :type cobertura: str
+    :rtype: pandas.core.DataFrame
+    
+    """
     
     # retorna o valor da pizza, mas tambem imprimir o conteúdo/preço da pizza
     pass
