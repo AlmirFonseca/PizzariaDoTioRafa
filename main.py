@@ -14,3 +14,5 @@ linhas = [["Massa", "Tradicional", 5.0], ["Massa", "Fina", 5.0],
 ingredientes = pd.DataFrame(data=linhas, columns=colunas)
 
 print(ingredientes)
+
+print(pm.montar_pizza(ingredientes=ingredientes, massa="NAOEXISTE", molho="NAOEXISTE", queijo="NAOEXISTE", cobertura="NAOEXISTE"))

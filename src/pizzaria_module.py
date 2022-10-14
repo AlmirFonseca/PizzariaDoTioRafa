@@ -113,7 +113,7 @@ def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
     :type ingredientes: pandas.core.DataFrame
     :param massa: o nome da massa escolhida
     :type massa: str
-    :param molho: o nome do molho escolhid
+    :param molho: o nome do molho escolhido
     :type molho: str
     :param queijo: o nome do queijo escolhido
     :type queijo: str
@@ -125,8 +125,42 @@ def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
     >>> linhas = [["Massa", "Tradicional", 5.0], ["Massa", "Fina", 5.0],["Molho", "Tomate", 3.50], ["Molho", "Branco", 4.20],["Queijo", "Mussarela", 6.70],["Queijo", "Prato", 8.10],["Cobertura", "Calabresa", 6.30], ["Cobertura", "Lombo", 9.20]]
     >>> ingredientes = pd.DataFrame(data=linhas, columns=colunas)
 
-    >>> 
-    
+    >>> montar_pizza(ingredientes=ingredientes, massa="Fina", molho="Branco", queijo="Prato", cobertura="Calabresa")
+    Eis a estrutrura da sua pizza:
+            Tipo       Nome  Valor
+    1      Massa       Fina    5.0
+    3      Molho     Branco    4.2
+    5     Queijo      Prato    8.1
+    6  Cobertura  Calabresa    6.3
+    Sua pizza vai custar R$23.6
+            Tipo       Nome  Valor
+    1      Massa       Fina    5.0
+    3      Molho     Branco    4.2
+    5     Queijo      Prato    8.1
+    6  Cobertura  Calabresa    6.3
+    0      PIZZA      TOTAL   23.6
+
+    >>> montar_pizza(ingredientes=ingredientes, massa="Fina", molho="NAOEXISTE", queijo="Prato", cobertura="Calabresa")
+    Eis a estrutrura da sua pizza:
+            Tipo       Nome  Valor
+    1      Massa       Fina    5.0
+    5     Queijo      Prato    8.1
+    6  Cobertura  Calabresa    6.3
+    Sua pizza vai custar R$19.4
+            Tipo       Nome  Valor
+    1      Massa       Fina    5.0
+    5     Queijo      Prato    8.1
+    6  Cobertura  Calabresa    6.3
+    0      PIZZA      TOTAL   19.4
+
+    >>> montar_pizza(ingredientes=ingredientes, massa="NAOEXISTE", molho="NAOEXISTE", queijo="NAOEXISTE", cobertura="NAOEXISTE")
+    Eis a estrutrura da sua pizza:
+    Empty DataFrame
+    Columns: [Tipo, Nome, Valor]
+    Index: []
+    Sua pizza vai custar R$0.0
+        Tipo   Nome  Valor
+    0  PIZZA  TOTAL    0.0
     """
 
     massa_info = ingredientes[ingredientes["Nome"] == massa]
