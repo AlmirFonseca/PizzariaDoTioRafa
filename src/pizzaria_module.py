@@ -67,9 +67,15 @@ def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
     :type valor: float
     :return: DataFrame atualizado com o ingrediente inserido
     :rtype: pandas.core.DataFrame
+    
+    >>> df = pd.DataFrame(data=[["Massa", "Tradicional", 5.0]], columns=["Tipo", "Nome", "Valor"])
+    >>> cadastrar_ingrediente(df, "Queijo", "Cheddar", 10.0)
+         Tipo         Nome Valor
+    0   Massa  Tradicional   5.0
+    1  Queijo      Cheddar  10.0
     """
     novo_ingrediente = {"Tipo": tipo, "Nome": nome, "Valor": valor}
-    ingredientes.concat(novo_ingrediente)
+    ingredientes = pd.concat([ingredientes, pd.DataFrame.from_dict({'Novo': novo_ingrediente}).T], ignore_index=True)
     return ingredientes
 
 def remover_ingrediente(ingredientes, nome_ingrediente):
