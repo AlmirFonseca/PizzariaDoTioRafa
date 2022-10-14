@@ -37,8 +37,19 @@ def listar_ingredientes(ingredientes, tipo=""):
     pass
 
 def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
-
-    # Retorna o dataframe atualizado, mas imprime o ingrediente adicionado
+    """Cadastra um ingrediente no DataFrame recebido
+    
+    :param ingredientes: O DataFrame que contém os ingredientes, com colunas Tipo, Nome, Valor
+    :type ingredientes: pandas.core.DataFrame
+    :param tipo: Tipo do ingrediente, sendo Massa, Molho, Queijo ou Cobertura
+    :type tipo: str
+    :param nome: Nome do ingrediente
+    :type nome: str
+    :param valor: Preço do ingrediente
+    :type valor: float
+    :return: DataFrame atualizado com o ingrediente inserido
+    :rtype: pandas.core.DataFrame
+    """
     pass
 
 def remover_ingrediente(ingredientes, nome_ingrediente):
