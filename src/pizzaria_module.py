@@ -82,8 +82,14 @@ def remover_ingrediente(ingredientes, nome_ingrediente):
     :type nome_ingrediente: str
     :return: Dataframe atualizado, e uma print no console do ingrediente removido
     :rtype: panda.core.Dataframe
+    
+    >>> df = pd.DataFrame(data=[["Massa", "Tradicional", 5.0], ["Massa", "Fina", 1.0]], columns=["Tipo", "Nome", "Valor"])
+    >>> remover_ingrediente(df, "Tradicional")
+        Tipo  Nome  Valor
+    0  Massa  Fina    1.0
     """
     ingredientes = ingredientes[ingredientes['Nome'] != nome_ingrediente]
+    ingredientes.reset_index(drop = True, inplace = True)
 
     return ingredientes
 
