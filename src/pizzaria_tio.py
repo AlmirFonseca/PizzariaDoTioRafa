@@ -42,7 +42,16 @@ def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
     pass
 
 def remover_ingrediente(ingredientes, nome_ingrediente):
+    """
+    Função que remove o ingrediente selecionado por meio do nome
 
+    :param ingredientes: Dataframe contendo as informações de todos os ingredientes
+    :type ingredientes: panda.core.Dataframe
+    :param nome_ingrediente: Nome do ingrediente a ser removido
+    :type nome_ingrediente: str
+    :return: Dataframe atualizado, e uma print no console do ingrediente removido
+    :rtype: panda.core.Dataframe
+    """
     # Retorna o dataframe atualizado, mas imprime o ingrediente removido
     pass
 
