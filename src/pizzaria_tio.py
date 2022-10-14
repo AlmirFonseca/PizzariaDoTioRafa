@@ -25,8 +25,15 @@
 #Monta pizzas, Cadastra Ingredientes, Remove Ingredientes, Lista Ingredientes (+++)
 
 def listar_ingredientes(ingredientes, tipo=""):
-
-    # imprime a lista de ingredientes e retorna a lista de ingrediente selecionada/filtrada
+    """Lista os ingredientes do DataFrame recebido do tipo especificado, se definido
+    
+    :param ingredientes: O DataFrame que contém os ingredientes, com colunas Tipo, Nome, Valor
+    :type ingredientes: pandas.core.DataFrame
+    :param tipo: Tipo de ingredientes a serem listados
+    :type tipo: str
+    :return: O DataFrame filtrado pelo tipo selecionado
+    :rtype: pandas.core.DataFrame
+    """
     pass
 
 def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
