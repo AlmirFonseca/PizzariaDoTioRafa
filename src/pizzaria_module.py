@@ -1,3 +1,5 @@
+import pandas as pd
+
 #ingredientes em um dataframe
 
 
@@ -33,8 +35,24 @@ def listar_ingredientes(ingredientes, tipo=""):
     :type tipo: str
     :return: O DataFrame filtrado pelo tipo selecionado
     :rtype: pandas.core.DataFrame
+    
+    >>> df = pd.DataFrame(data=[["Massa", "Tradicional", 5.0]], columns=["Tipo", "Nome", "Valor"])
+    >>> listar_ingredientes(df, "Massa")
+        Tipo         Nome  Valor
+    0  Massa  Tradicional    5.0
+        Tipo         Nome  Valor
+    0  Massa  Tradicional    5.0
+    
     """
-    pass
+    if tipo == "":
+        ingredientes_filtrados = ingredientes
+    else:
+        tipos = tipo.split()
+        ingredientes_filtrados = ingredientes[ingredientes["Tipo"].isin(tipos)]
+    
+    print(ingredientes_filtrados.to_string())
+    return ingredientes_filtrados
+    
 
 def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
     """Cadastra um ingrediente no DataFrame recebido
@@ -92,3 +110,7 @@ def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
     
     # retorna o valor da pizza, mas tambem imprimir o conteúdo/preço da pizza
     pass
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
