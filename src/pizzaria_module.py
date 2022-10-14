@@ -65,8 +65,9 @@ def remover_ingrediente(ingredientes, nome_ingrediente):
     :return: Dataframe atualizado, e uma print no console do ingrediente removido
     :rtype: panda.core.Dataframe
     """
-    # Retorna o dataframe atualizado, mas imprime o ingrediente removido
-    pass
+    ingredientes = ingredientes[ingredientes['Nome'] != nome_ingrediente]
+
+    return ingredientes
 
 def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
     """
