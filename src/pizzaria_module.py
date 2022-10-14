@@ -50,7 +50,9 @@ def cadastrar_ingrediente(ingredientes, tipo ,nome, valor):
     :return: DataFrame atualizado com o ingrediente inserido
     :rtype: pandas.core.DataFrame
     """
-    pass
+    novo_ingrediente = {"Tipo": tipo, "Nome": nome, "Valor": valor}
+    ingredientes.concat(novo_ingrediente)
+    return ingredientes
 
 def remover_ingrediente(ingredientes, nome_ingrediente):
     """
