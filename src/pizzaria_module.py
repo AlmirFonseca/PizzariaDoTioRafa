@@ -120,11 +120,34 @@ def montar_pizza(ingredientes, massa, molho, queijo, cobertura):
     :param cobertura: o nome da cobertura escolhida
     :type cobertura: str
     :rtype: pandas.core.DataFrame
+
+    >>> colunas = ["Tipo", "Nome", "Valor"]
+    >>> linhas = [["Massa", "Tradicional", 5.0], ["Massa", "Fina", 5.0],["Molho", "Tomate", 3.50], ["Molho", "Branco", 4.20],["Queijo", "Mussarela", 6.70],["Queijo", "Prato", 8.10],["Cobertura", "Calabresa", 6.30], ["Cobertura", "Lombo", 9.20]]
+    >>> ingredientes = pd.DataFrame(data=linhas, columns=colunas)
+
+    >>> 
     
     """
-    
-    # retorna o valor da pizza, mas tambem imprimir o conteúdo/preço da pizza
-    pass
+
+    massa_info = ingredientes[ingredientes["Nome"] == massa]
+    molho_info = ingredientes[ingredientes["Nome"] == molho]
+    queijo_info = ingredientes[ingredientes["Nome"] == queijo]
+    cobertura_info = ingredientes[ingredientes["Nome"] == cobertura]
+
+    pizza = pd.DataFrame([])
+
+    pizza = pd.concat([pizza, massa_info, molho_info, queijo_info, cobertura_info])
+
+    valor_total = pizza["Valor"].sum()
+    valor_total = round(valor_total, 2)
+    linha_final = pd.DataFrame(data=[["PIZZA", "TOTAL", valor_total]], columns=["Tipo", "Nome", "Valor"])
+
+    print("Eis a estrutrura da sua pizza:", pizza, sep="\n")
+    print(f"Sua pizza vai custar R${valor_total}")
+
+    pizza = pd.concat([pizza, linha_final])
+
+    return pizza
 
 if __name__ == "__main__":
     import doctest
